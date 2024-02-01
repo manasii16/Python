@@ -33,7 +33,7 @@ class Solution(object):
 
         for i in range(len(nums)-2):
             if i%3 == 0:
-                if (nums[i+2]-nums[i])<=2:   #Calculate the difference between the third and first elements subarray  
+                if nums[i+2]-nums[i] <= k:   #Calculate the difference between the third and first elements subarray  
                     v.append([nums[i],nums[i+1],nums[i+2]])
                 else:
                     return []
