@@ -66,5 +66,67 @@ class Solution(object):
                     break
         return int(a)-int(b)
         
+--------------------------------------------------------------------------------------
+# You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in adjacent plots.
+
+# Given an integer array flowerbed containing 0's and 1's, where 0 means empty and 1 means not empty, and an integer n, return true
+# if n new flowers can be planted in the flowerbed without violating the no-adjacent-flowers rule and false otherwise.
+
+class Solution(object):
+    def canPlaceFlowers(self, flowerbed, n):
+        length = len(flowerbed)
+        i = 0
         
+        while i<length:
+            if flowerbed[i]==0:
+               next=flowerbed[i+1] if i<length-1 else 0
+               if next ==0:
+                    n-=1
+                    i+=2
+               else:
+                i+=1
+               if n==0:
+                return True
+            else:
+                i+=2
+        return n<=0
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+# Given a string s, reverse only all the vowels in the string and return it.
+
+# The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
+
+class Solution(object):
+    def reverseVowels(self, s):
+        
+        # Convert the input string to a character array.
+        arr = list(s)
+        
+        start = 0
+        end = len(s) - 1
+        vowels = {'a','e','i','o','u','A','E','I','O','U'}
+        
+        # Loop until the start pointer is no longer less than the end pointer.
+        while start < end:
+            
+            if s[start] not in vowels:
+                start+=1
+                
+            if s[end] not in vowels:
+                end-=1
+                
+            if s[start] in vowels and s[end] in vowels:
+                
+                # Swap the vowels found at the start and end positions.
+                arr[start], arr[end] = arr[end], arr[start]
+            
+                # Move the pointers towards each other for the next iteration.
+                start += 1
+                end -= 1
+        
+        # Convert the character array back to a string and return the result.
+        return "".join(arr)
+    
+    
+    
         
