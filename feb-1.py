@@ -173,4 +173,25 @@ class Solution(object):
             post_prod*=nums[i]
         return result
     
+------------------------------------------------------------------------------------------------------------------------------------------
+# Given an integer array nums, return true if there exists a triple of indices (i, j, k) such that i < j < k and nums[i] < nums[j] < nums[k]. 
+# If no such indices exists, return false.
 
+class Solution(object):
+    def increasingTriplet(self, nums):
+        f=s=float('inf')
+        for n in nums:
+            if n<=f:
+                f=n
+            elif n<=s:
+                s=n
+            else:
+                return True
+        return False
+        
+        
+        
+        
+
+
+ 
